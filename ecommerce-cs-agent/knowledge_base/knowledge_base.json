@@ -1,0 +1,118 @@
+{
+  "product_P10001": {
+    "id": "product_P10001",
+    "category": "product",
+    "title": "无线蓝牙耳机 降噪运动跑步适用",
+    "content": "价格: ¥89.00 (原价¥129.00)\n库存: 523件\n已售: 1876件\n类目: 数码配件\n描述: 蓝牙5.3，40小时续航，主动降噪，IPX5防水\n规格:\n  - 黑色-标准版: ¥89.00 (库存200)\n  - 白色-标准版: ¥89.00 (库存180)\n  - 黑色-升级版: ¥119.00 (库存143)",
+    "metadata": {
+      "product_id": "P10001",
+      "price": 89.0
+    },
+    "updated_at": ""
+  },
+  "product_P10002": {
+    "id": "product_P10002",
+    "category": "product",
+    "title": "手机支架 桌面可折叠铝合金",
+    "content": "价格: ¥29.90 (原价¥49.90)\n库存: 1200件\n已售: 5680件\n类目: 手机配件\n描述: 铝合金材质，可折叠，兼容4-12寸设备\n规格:\n  - 银色: ¥29.90 (库存600)\n  - 黑色: ¥29.90 (库存600)",
+    "metadata": {
+      "product_id": "P10002",
+      "price": 29.9
+    },
+    "updated_at": ""
+  },
+  "product_P10003": {
+    "id": "product_P10003",
+    "category": "product",
+    "title": "Type-C数据线 快充100W 2米",
+    "content": "价格: ¥15.90 (原价¥25.90)\n库存: 3000件\n已售: 12340件\n类目: 数码配件\n描述: 100W快充，2米长度，编织线材，兼容所有Type-C设备\n规格:\n  - 白色-2米: ¥15.90 (库存1500)\n  - 黑色-2米: ¥15.90 (库存1500)",
+    "metadata": {
+      "product_id": "P10003",
+      "price": 15.9
+    },
+    "updated_at": ""
+  },
+  "product_P10004": {
+    "id": "product_P10004",
+    "category": "product",
+    "title": "充电宝 20000mAh 22.5W快充",
+    "content": "价格: ¥69.00 (原价¥99.00)\n库存: 800件\n已售: 3210件\n类目: 数码配件\n描述: 20000mAh大容量，22.5W快充，可充手机4-5次\n规格:\n  - 白色: ¥69.00 (库存400)\n  - 黑色: ¥69.00 (库存400)",
+    "metadata": {
+      "product_id": "P10004",
+      "price": 69.0
+    },
+    "updated_at": ""
+  },
+  "faq_bfd2551c": {
+    "id": "faq_bfd2551c",
+    "category": "faq",
+    "title": "发货时间",
+    "content": "下单后48小时内发货，偏远地区可能延迟1-2天。",
+    "metadata": {},
+    "updated_at": ""
+  },
+  "faq_b5d690f0": {
+    "id": "faq_b5d690f0",
+    "category": "faq",
+    "title": "退换货政策",
+    "content": "支持7天无理由退换货退款，商品需保持原包装完好。质量问题由卖家承担运费。退款流程：申请退款→卖家审核→退款到账（1-3个工作日）。",
+    "metadata": {},
+    "updated_at": ""
+  },
+  "faq_0030dfaf": {
+    "id": "faq_0030dfaf",
+    "category": "faq",
+    "title": "发票",
+    "content": "支持开具电子发票，在订单详情页申请。",
+    "metadata": {},
+    "updated_at": ""
+  },
+  "faq_2f36359e": {
+    "id": "faq_2f36359e",
+    "category": "faq",
+    "title": "优惠券",
+    "content": "店铺不定期发放优惠券，关注店铺可第一时间获取。",
+    "metadata": {},
+    "updated_at": ""
+  },
+  "faq_19a6601b": {
+    "id": "faq_19a6601b",
+    "category": "faq",
+    "title": "质保",
+    "content": "数码产品享受1年质保，非人为损坏免费维修。",
+    "metadata": {},
+    "updated_at": ""
+  },
+  "script_595a378d": {
+    "id": "script_595a378d",
+    "category": "script",
+    "title": "开场问候",
+    "content": "亲，欢迎光临！有什么可以帮到您的吗？😊",
+    "metadata": {},
+    "updated_at": ""
+  },
+  "script_fe845cd7": {
+    "id": "script_fe845cd7",
+    "category": "script",
+    "title": "催付",
+    "content": "亲，看到您的订单还没付款呢，现在下单还能享受优惠哦～",
+    "metadata": {},
+    "updated_at": ""
+  },
+  "script_be1d561c": {
+    "id": "script_be1d561c",
+    "category": "script",
+    "title": "好评引导",
+    "content": "亲，收到商品满意的话麻烦给个五星好评哦，您的支持是我们最大的动力！",
+    "metadata": {},
+    "updated_at": ""
+  },
+  "script_bd09223f": {
+    "id": "script_bd09223f",
+    "category": "script",
+    "title": "道歉话术",
+    "content": "非常抱歉给您带来不好的体验，我们会尽快为您处理，请您放心！",
+    "metadata": {},
+    "updated_at": ""
+  }
+}

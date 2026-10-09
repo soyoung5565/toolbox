@@ -1,0 +1,64 @@
+# 电商智能客服Agent 配置文件
+
+app:
+  name: "ecommerce-cs-agent"
+  version: "0.1.0"
+  debug: true
+  host: "0.0.0.0"
+  port: 8000
+
+database:
+  url: "postgresql+asyncpg://postgres:postgres@localhost:5432/ecommerce_cs"
+  echo: false
+
+redis:
+  url: "redis://localhost:6379/0"
+
+llm:
+  provider: "deepseek"
+  model: "deepseek-chat"
+  api_key: "${DEEPSEEK_API_KEY}"
+  base_url: "https://api.deepseek.com"
+  temperature: 0.3
+  max_tokens: 2048
+
+dify:
+  api_url: "http://localhost/v1"
+  api_key: "${DIFY_API_KEY}"
+
+# 各平台配置
+platforms:
+  taobao:
+    app_key: "${TAOBAO_APP_KEY}"
+    app_secret: "${TAOBAO_APP_SECRET}"
+    callback_url: "${CALLBACK_BASE_URL}/webhook/taobao"
+  pdd:
+    client_id: "${PDD_CLIENT_ID}"
+    client_secret: "${PDD_CLIENT_SECRET}"
+    callback_url: "${CALLBACK_BASE_URL}/webhook/pdd"
+  douyin:
+    app_key: "${DOUYIN_APP_KEY}"
+    app_secret: "${DOUYIN_APP_SECRET}"
+    callback_url: "${CALLBACK_BASE_URL}/webhook/douyin"
+  jd:
+    app_key: "${JD_APP_KEY}"
+    app_secret: "${JD_APP_SECRET}"
+    callback_url: "${CALLBACK_BASE_URL}/webhook/jd"
+
+# 售后风控配置
+risk:
+  max_auto_approve_amount: 200     # 自动同意退款的最大金额(元)
+  max_daily_auto_refund: 5000      # 单日自动退款上限(元)
+  suspicious_refund_rate: 0.3      # 退货率阈值(30%)
+  suspicious_refund_count_7d: 3    # 7天内退款次数阈值
+  max_return_days: 15              # 默认售后期(天)
+  new_account_days: 7              # 新账号天数阈值
+  high_value_threshold: 500        # 高金额退款阈值(元)
+
+# 安全配置
+security:
+  jwt_secret: "${JWT_SECRET_KEY}"
+  jwt_algorithm: "HS256"
+  jwt_expire_minutes: 60
+  rate_limit_per_minute: 60
+  enable_prompt_injection_detection: true

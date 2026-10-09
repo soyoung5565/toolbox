@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 日志
+*.log
+
+# 临时文件
+_ocr_tmp.png
+test_send.png
+
+# 截图/模板（大文件，按需保留）
+# references/
+# templates/
+
+# 运行时产物
+__pycache__/
+*.pyc
+guardian.log
+corrections/*.png
+.codegraph/

@@ -1,0 +1,15 @@
+# Android
+build/
+.gradle/
+local.properties
+*.iml
+.idea/
+.kotlin/
+captures/
+
+# 大体积本地依赖（获取方式见 README）
+app/libs/*.aar
+app/src/main/assets/sherpa-onnx-paraformer-zh-2024-03-09/model.int8.onnx
+
+# 系统
+.DS_Store

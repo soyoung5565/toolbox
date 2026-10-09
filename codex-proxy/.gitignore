@@ -1,0 +1,15 @@
+# API Key
+.env
+
+# 调试日志
+proxy_debug.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 虚拟环境
+venv/
+.venv/
+env/

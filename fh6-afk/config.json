@@ -1,0 +1,259 @@
+{
+  "name": "默认配置",
+  "ai": {
+    "api_base": "https://token-plan-cn.xiaomimimo.com/v1",
+    "api_key": "YOUR_MIMO_API_KEY",
+    "model": "mimo-v2.5",
+    "max_tokens": 500,
+    "reference": {
+      "description": "地平线6 直线撞击赛道刷技能点挂机循环",
+      "game": "Forza Horizon 6",
+      "track_type": "自定义直线撞击赛道（嘉年华主舞台附近）",
+      "vehicle": "黄色雷诺梅甘娜",
+      "normal_states": {
+        "preparation": {
+          "description": "赛事准备状态：车辆静止在起跑线，HUD无进度显示，速度表归零",
+          "hud_indicators": [
+            "速度=0",
+            "进度条不存在",
+            "无技能乘数"
+          ]
+        },
+        "racing": {
+          "description": "比赛中：车辆沿直线加速，撞击沿途装饰物体积累技能点",
+          "hud_indicators": [
+            "进度百分比从0%线性增长到100%（左上角）",
+            "速度稳定在90-115 km/h（右下角速度表）",
+            "技能乘数随撞击物体上升 x1.0→x5.0→x9.0（屏幕中上部）",
+            "迷你地图显示车辆在直线赛道上（左下角）",
+            "比赛计时器持续计时（左上角下方）",
+            "撞击时显示'破坏'、'连击'字样和分数"
+          ]
+        },
+        "finish": {
+          "description": "冲线状态：进度达到100%，黑白格旗",
+          "hud_indicators": [
+            "进度=100%",
+            "终点线标志"
+          ]
+        },
+        "settlement": {
+          "description": "结算界面：显示比赛用时、技能点总数、经验值、游戏币",
+          "hud_indicators": [
+            "结算信息弹出"
+          ]
+        },
+        "returning": {
+          "description": "结算后返回：自动回到赛事准备状态，重新加载",
+          "hud_indicators": [
+            "加载画面",
+            "随后回到起点"
+          ]
+        }
+      },
+      "abnormal_states": {
+        "car_stuck": {
+          "description": "车辆卡住：速度归零或剧烈波动，进度百分比长时间不更新",
+          "detection": "速度=0且进度不变持续3秒以上"
+        },
+        "off_track": {
+          "description": "路径偏离：迷你地图显示车辆不在赛道直线上",
+          "detection": "车辆位置偏离直线赛道"
+        },
+        "skill_stuck": {
+          "description": "乘数停滞：连续撞击后乘数不再上升",
+          "detection": "乘数长时间不变"
+        },
+        "game_crash": {
+          "description": "游戏崩溃/卡死：画面冻结或黑屏",
+          "detection": "画面完全不变超过10秒"
+        },
+        "loop_break": {
+          "description": "循环中断：结算后未返回起点，或菜单弹出",
+          "detection": "出现非预期的菜单/对话框"
+        }
+      },
+      "cycle_flow": [
+        "空闲准备状态（车停在起点）",
+        "脚本触发开始（按油门）",
+        "直线加速行驶（撞击物体积累技能链）",
+        "进度100%冲线",
+        "结算画面（自动跳过）",
+        "重新加载赛事",
+        "返回空闲准备状态"
+      ]
+    }
+  },
+  "monitor": {
+    "check_interval": 60,
+    "deviation_threshold": 3,
+    "auto_correct": true,
+    "screenshot_region": null
+  },
+  "corrections": {
+    "restart_race": {
+      "description": "退出赛事并重新开始（纯键盘）",
+      "steps": [
+        {
+          "action": "press",
+          "key": "escape",
+          "delay_after": 1.5
+        },
+        {
+          "action": "press",
+          "key": "escape",
+          "delay_after": 1.5
+        },
+        {
+          "action": "press",
+          "key": "escape",
+          "delay_after": 2.0
+        },
+        {
+          "action": "hold",
+          "key": "w",
+          "duration": 3.0
+        }
+      ]
+    },
+    "reverse_and_turn": {
+      "description": "倒车+转向+重新加速（纯键盘）",
+      "steps": [
+        {
+          "action": "hold",
+          "key": "s",
+          "duration": 1.5
+        },
+        {
+          "action": "hold",
+          "key": "a",
+          "duration": 1.0
+        },
+        {
+          "action": "hold",
+          "key": "w",
+          "duration": 3.0
+        }
+      ]
+    },
+    "pause_resume": {
+      "description": "暂停恢复游戏（纯键盘）",
+      "steps": [
+        {
+          "action": "press",
+          "key": "escape",
+          "delay_after": 1.5
+        },
+        {
+          "action": "press",
+          "key": "escape",
+          "delay_after": 2.0
+        }
+      ]
+    },
+    "enter_menu": {
+      "description": "按ESC进入游戏菜单",
+      "steps": [
+        {
+          "action": "press",
+          "key": "escape",
+          "delay_after": 2.0
+        }
+      ]
+    }
+  },
+  "_说明": {
+    "ai.api_base": "OpenAI兼容的API地址，支持任何兼容接口",
+    "ai.api_key": "API密钥",
+    "ai.model": "视觉模型名称",
+    "monitor.check_interval": "每隔几秒截图检查一次",
+    "monitor.deviation_threshold": "连续N次AI判定偏差才触发纠正",
+    "monitor.screenshot_region": "截图区域 null=全屏，格式 [x,y,w,h]",
+    "corrections": "纠正动作定义，AI会从中选择合适的执行",
+    "steps支持的动作": {
+      "press": "按一下键: {action:press, key:键名, delay_after:等待秒数}",
+      "hold": "按住键: {action:hold, key:键名, duration:按住秒数}",
+      "click": "鼠标点击: {action:click, x:坐标, y:坐标, button:left/right, delay_after:等待秒数}",
+      "move": "鼠标移动: {action:move, x:坐标, y:坐标}",
+      "wait": "等待: {action:wait, duration:秒数}"
+    }
+  },
+  "reference": {
+    "description": "地平线6 直线撞击赛道刷技能点挂机循环",
+    "game": "Forza Horizon 6",
+    "track_type": "自定义直线撞击赛道（嘉年华主舞台附近）",
+    "vehicle": "黄色雷诺梅甘娜",
+    "normal_states": {
+      "preparation": {
+        "description": "赛事准备状态：车辆静止在起跑线，HUD无进度显示，速度表归零",
+        "hud_indicators": [
+          "速度=0",
+          "进度条不存在",
+          "无技能乘数"
+        ]
+      },
+      "racing": {
+        "description": "比赛中：车辆沿直线加速，撞击沿途装饰物体积累技能点",
+        "hud_indicators": [
+          "进度百分比从0%线性增长到100%（左上角）",
+          "速度稳定在90-115 km/h（右下角速度表）",
+          "技能乘数随撞击物体上升 x1.0→x5.0→x9.0（屏幕中上部）",
+          "迷你地图显示车辆在直线赛道上（左下角）",
+          "比赛计时器持续计时（左上角下方）",
+          "撞击时显示'破坏'、'连击'字样和分数"
+        ]
+      },
+      "finish": {
+        "description": "冲线状态：进度达到100%，黑白格旗",
+        "hud_indicators": [
+          "进度=100%",
+          "终点线标志"
+        ]
+      },
+      "settlement": {
+        "description": "结算界面：显示比赛用时、技能点总数、经验值、游戏币",
+        "hud_indicators": [
+          "结算信息弹出"
+        ]
+      },
+      "returning": {
+        "description": "结算后返回：自动回到赛事准备状态，重新加载",
+        "hud_indicators": [
+          "加载画面",
+          "随后回到起点"
+        ]
+      }
+    },
+    "abnormal_states": {
+      "car_stuck": {
+        "description": "车辆卡住：速度归零或剧烈波动，进度百分比长时间不更新",
+        "detection": "速度=0且进度不变持续3秒以上"
+      },
+      "off_track": {
+        "description": "路径偏离：迷你地图显示车辆不在赛道直线上",
+        "detection": "车辆位置偏离直线赛道"
+      },
+      "skill_stuck": {
+        "description": "乘数停滞：连续撞击后乘数不再上升",
+        "detection": "乘数长时间不变"
+      },
+      "game_crash": {
+        "description": "游戏崩溃/卡死：画面冻结或黑屏",
+        "detection": "画面完全不变超过10秒"
+      },
+      "loop_break": {
+        "description": "循环中断：结算后未返回起点，或菜单弹出",
+        "detection": "出现非预期的菜单/对话框"
+      }
+    },
+    "cycle_flow": [
+      "空闲准备状态（车停在起点）",
+      "脚本触发开始（按油门）",
+      "直线加速行驶（撞击物体积累技能链）",
+      "进度100%冲线",
+      "结算画面（自动跳过）",
+      "重新加载赛事",
+      "返回空闲准备状态"
+    ]
+  }
+}
