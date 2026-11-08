@@ -2,6 +2,12 @@
 
 覆盖拼多多/淘宝/京东/抖音等主流平台的AI智能客服系统，具备**智能问答 + 商品推荐 + 退换货决策 + 客户跟进**能力。
 
+> 📦 **本目录为工具集内的副本。独立仓库 → [soyoung5565/ecommerce-cs-agent](https://github.com/soyoung5565/ecommerce-cs-agent)**
+> 代码与独立仓库同步（5,455 行 Python 一致），独立仓库保留完整 commit 历史与密钥清理记录。
+>
+> ⚠️ 注意：本项目历史上曾把真实 Token Plan API Key 提交进 `.env`（`.gitignore` 换行符写坏导致规则失效）。
+> 已在独立仓库用 `git filter-repo` 重写历史清除，**`.env` 已移出版本库**，仓库只提供 `.env.example`。
+
 ## 核心特性
 
 - **🧠 LLM驱动** — MIMO/DeepSeek/任何OpenAI兼容模型，客户可自定义

@@ -2,6 +2,11 @@
 Screen Translator — 屏幕实时翻译覆盖
 使用 MIMO v2.5 大模型进行 OCR + 翻译
 参考：手机浏览器的AI网页翻译功能
+
+⚠️ 本文件已废弃，不再维护。
+   已被独立版取代：https://github.com/soyoung5565/screen-translator-standalone
+   原因：本版强依赖 Hermes（从 ~/.hermes/config.yaml 读 key），且多一层 OCR 误差。
+   本文件仅作历史留存，请勿基于此文件开发。
 """
 
 import sys

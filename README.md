@@ -30,11 +30,23 @@ sherpa-onnx Paraformer 中文离线模型（不上传、无网络依赖）+ `Scr
 视频理解 / 音频提取 / 音频转录 —— 一套脚本跑完"下载 → 抽取 → 理解"链路，支持指定时间段裁剪。
 `Python` `MIMO API`
 
-### 🖥️ [screen-translator](./screen-translator/) — 屏幕实时翻译（悬浮窗）
+### 🖥️ [screen-translator](./screen-translator/) — 屏幕实时翻译（悬浮窗）⚠️ 已废弃
 框选屏幕任意区域 → OCR + 翻译 → 悬浮覆盖在原文上，不打断阅读。刷新间隔 / 字号 / 透明度均可调。
 `Python` `PyQt5` `mss`
 
-> **注**：这是早期的 OCR 版本（单文件）。已重构为独立应用的版本在 **[screen-translator-standalone](https://github.com/soyoung5565/screen-translator-standalone)** —— 用视觉大模型直接返回译文 + 坐标，**原位像素级覆盖**，无 OCR 引擎依赖，并带墨迹校正与打包自检闭环。
+> ⚠️ **本目录是早期 OCR 版本（单文件 768 行），已被取代，不再维护。**
+>
+> **请使用 → [screen-translator-standalone](https://github.com/soyoung5565/screen-translator-standalone)**（独立仓库）
+>
+> | | 旧版（本目录） | 独立版 |
+> |---|---|---|
+> | 代码量 | 768 行单文件 | **4,652 行**（模块化 + 6 套测试） |
+> | 识别方式 | MIMO OCR + 翻译 | **视觉模型直接返回译文 + 坐标** |
+> | 依赖 | **强依赖 Hermes**（从 `~/.hermes/config.yaml` 读 key） | **零 Agent 框架依赖**，只需自己的 `.env` |
+> | UI | 基础悬浮窗 | OpenDesign 重设计（状态带 / 分段控件 / 状态灯） |
+> | 打包 | 无 | PyInstaller exe + `--selftest` 验收闭环 |
+>
+> 旧版代码保留在版本库中仅作历史留存，**新项目请勿基于此目录开发**。
 
 ---
 
